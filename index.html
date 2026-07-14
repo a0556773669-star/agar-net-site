@@ -12,6 +12,7 @@
 :root{
   --teal:#12988a; --teal-dark:#0b6b60; --teal-light:#38c8b6; --teal-glow:rgba(56,200,182,.45);
   --red:#e2231a; --red-dark:#b81810;
+  --room:#3a55d9; --room-dark:#2338a8; --room-glow:rgba(58,85,217,.4);
   --ink:#14161b; --muted:#5a6b68; --bg:#f4faf9; --card:#ffffff;
   --shadow:0 18px 45px -20px rgba(11,107,96,.45);
   --radius:22px;
@@ -124,7 +125,7 @@ header.scrolled .nav-inner{background:rgba(255,255,255,.94);box-shadow:0 14px 34
 
 /* ===== BRANCHES ===== */
 .branches-sec{background:linear-gradient(180deg,transparent,rgba(18,152,138,.05) 30%,rgba(18,152,138,.05) 70%,transparent)}
-.branch-tools{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.branch-tools{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
 .search-box{position:relative;flex:1;max-width:420px;min-width:240px}
 .search-box input{width:100%;padding:15px 50px 15px 20px;border-radius:40px;border:1.5px solid rgba(18,152,138,.2);
   font-family:inherit;font-size:1rem;background:#fff;transition:.3s}
@@ -133,11 +134,28 @@ header.scrolled .nav-inner{background:rgba(255,255,255,.94);box-shadow:0 14px 34
 .filter-btn{padding:13px 22px;border-radius:40px;border:1.5px solid rgba(18,152,138,.2);background:#fff;
   font-family:inherit;font-weight:600;cursor:pointer;transition:.3s;color:var(--muted)}
 .filter-btn.active,.filter-btn:hover{background:var(--teal-dark);color:#fff;border-color:var(--teal-dark)}
+.legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;font-size:.9rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{width:14px;height:14px;border-radius:5px;display:inline-block}
+.legend .l-rental{background:linear-gradient(90deg,var(--teal),var(--teal-light))}
+.legend .l-room{background:linear-gradient(90deg,var(--room),#6d84ee)}
+.legend .l-soon{background:linear-gradient(90deg,var(--red),#ff6b5e)}
 .branch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .branch-card{background:var(--card);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
   border:1px solid rgba(18,152,138,.1);position:relative;overflow:hidden;transition:.4s;display:flex;flex-direction:column}
 .branch-card:hover{transform:translateY(-6px);box-shadow:0 30px 55px -25px rgba(11,107,96,.5)}
 .branch-card .bar{position:absolute;inset-block-start:0;inset-inline:0;height:5px;background:linear-gradient(90deg,var(--teal),var(--teal-light))}
+.branch-card .city{color:var(--teal-dark)}
+.branch-card .addr svg{color:var(--teal)}
+/* room variant */
+.branch-card.room{background:linear-gradient(180deg,#fff,#f5f7ff);border-color:rgba(58,85,217,.18)}
+.branch-card.room .bar{background:linear-gradient(90deg,var(--room),#6d84ee)}
+.branch-card.room .city{color:var(--room-dark)}
+.branch-card.room .addr svg{color:var(--room)}
+.branch-card.room .b-call{background:linear-gradient(135deg,var(--room),var(--room-dark))}
+.branch-card.room .b-nav{background:rgba(58,85,217,.1);color:var(--room-dark)}
+.branch-card.room .badge.on{background:rgba(58,85,217,.12);color:var(--room-dark)}
+/* soon variant */
 .branch-card.soon{background:linear-gradient(180deg,#fff,#fff7f6);border-color:rgba(226,35,26,.18)}
 .branch-card.soon .bar{background:linear-gradient(90deg,var(--red),#ff6b5e)}
 .badge{position:absolute;inset-block-start:18px;inset-inline-start:18px;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:20px}
@@ -145,11 +163,11 @@ header.scrolled .nav-inner{background:rgba(255,255,255,.94);box-shadow:0 14px 34
 .badge.soon{background:var(--red);color:#fff;overflow:hidden;position:absolute}
 .badge.soon::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.5),transparent 70%);animation:shine 2.4s infinite}
 @keyframes shine{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
-.branch-card .city{display:inline-flex;align-items:center;gap:7px;color:var(--teal-dark);font-weight:700;font-size:.85rem;margin-bottom:6px}
+.branch-card .city{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.85rem;margin-bottom:6px}
 .branch-card .city svg{width:15px;height:15px}
-.branch-card h3{font-family:'Rubik';font-weight:800;font-size:1.3rem;margin-bottom:12px;padding-inline-end:70px}
+.branch-card h3{font-family:'Rubik';font-weight:800;font-size:1.3rem;margin-bottom:12px;padding-inline-end:90px}
 .branch-card .addr{display:flex;gap:8px;color:var(--muted);font-size:.95rem;margin-bottom:18px}
-.branch-card .addr svg{width:17px;height:17px;flex-shrink:0;margin-top:3px;color:var(--teal)}
+.branch-card .addr svg{width:17px;height:17px;flex-shrink:0;margin-top:3px}
 .branch-actions{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .b-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px;border-radius:14px;
   font-weight:700;font-size:.9rem;transition:.25s;cursor:pointer;border:none;font-family:inherit}
@@ -157,40 +175,21 @@ header.scrolled .nav-inner{background:rgba(255,255,255,.94);box-shadow:0 14px 34
 .b-call{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff}
 .b-call:hover{transform:translateY(-2px);box-shadow:0 10px 20px -8px var(--teal-glow)}
 .b-nav{background:rgba(18,152,138,.1);color:var(--teal-dark)}
-.b-nav:hover{background:rgba(18,152,138,.2)}
-.b-wa{background:rgba(37,211,102,.12);color:#128c3e}
-.b-wa:hover{background:rgba(37,211,102,.22)}
+.b-nav:hover{filter:brightness(.97)}
 .b-full{grid-column:1 / -1}
 .no-results{text-align:center;color:var(--muted);grid-column:1/-1;padding:40px;font-size:1.1rem}
-
-/* ===== COMPUTER ROOM ===== */
-.room{background:linear-gradient(135deg,#0d7a6e,#0a5c53);border-radius:34px;padding:56px;color:#fff;
-  position:relative;overflow:hidden;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
-.room::before{content:"";position:absolute;inset-block-start:-80px;inset-inline-start:-80px;width:300px;height:300px;
-  background:radial-gradient(circle,var(--teal-glow),transparent 70%);filter:blur(30px)}
-.room-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
-  padding:7px 16px;border-radius:30px;font-weight:600;font-size:.9rem;margin-bottom:18px}
-.room h2{font-family:'Rubik';font-weight:900;font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:16px;position:relative;z-index:2}
-.room p{color:rgba(255,255,255,.9);font-size:1.1rem;margin-bottom:26px;position:relative;z-index:2}
-.room-actions{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
-.room-visual{position:relative;z-index:2;display:grid;place-items:center}
-.room-visual .screen{width:100%;aspect-ratio:4/3;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
-  border-radius:20px;display:grid;place-items:center;backdrop-filter:blur(6px)}
-.room-visual .screen svg{width:45%;height:45%;color:rgba(255,255,255,.55);animation:float 6s ease-in-out infinite}
 
 /* ===== CONTACT ===== */
 .contact-sec{padding:90px 0}
 .contact-card{background:var(--card);border-radius:34px;box-shadow:0 30px 70px -30px rgba(11,107,96,.4);
   display:grid;grid-template-columns:1fr 1.2fr;overflow:hidden;border:1px solid rgba(18,152,138,.1)}
-.contact-side{background:linear-gradient(160deg,#0d7a6e,#0a5c53);color:#fff;padding:48px 40px;position:relative;overflow:hidden}
+.contact-side{background:linear-gradient(160deg,#0d7a6e,#0a5c53);color:#fff;padding:48px 40px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .contact-side::after{content:"";position:absolute;inset-block-end:-60px;inset-inline-end:-60px;width:220px;height:220px;
   background:radial-gradient(circle,var(--teal-glow),transparent 70%);filter:blur(20px)}
+.contact-side .ic{width:60px;height:60px;border-radius:18px;background:rgba(255,255,255,.15);display:grid;place-items:center;margin-bottom:22px;position:relative;z-index:2}
+.contact-side .ic svg{width:30px;height:30px}
 .contact-side h2{font-family:'Rubik';font-weight:900;font-size:2rem;margin-bottom:14px;position:relative;z-index:2}
-.contact-side p{color:rgba(255,255,255,.88);margin-bottom:30px;position:relative;z-index:2}
-.contact-info{position:relative;z-index:2;display:flex;flex-direction:column;gap:18px}
-.contact-info a{display:flex;align-items:center;gap:14px;font-weight:500}
-.contact-info .ci-ic{width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.15);display:grid;place-items:center;flex-shrink:0}
-.contact-info .ci-ic svg{width:20px;height:20px}
+.contact-side p{color:rgba(255,255,255,.88);position:relative;z-index:2}
 .contact-form{padding:48px 40px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field{margin-bottom:18px}
@@ -212,20 +211,17 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .foot-links a:hover{color:var(--teal-light)}
 .foot-bottom{padding-top:22px;text-align:center;font-size:.85rem;color:rgba(255,255,255,.45)}
-.foot-bottom a{color:var(--teal-light)}
 
 /* ===== REVEAL ===== */
 .reveal{opacity:0;transform:translateY(40px);transition:.7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
 /* ===== FLOATING CALL ===== */
-.fab{position:fixed;inset-block-end:24px;inset-inline-start:24px;z-index:40;display:flex;flex-direction:column;gap:12px}
-.fab a{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.4);transition:.3s;color:#fff}
+.fab{position:fixed;inset-block-end:24px;inset-inline-start:24px;z-index:40}
+.fab a{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.4);transition:.3s;color:#fff;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dark));animation:ring 2.5s infinite}
 .fab a:hover{transform:scale(1.1) translateY(-2px)}
-.fab .wa{background:#25d366}
-.fab .ph{background:linear-gradient(135deg,var(--teal),var(--teal-dark))}
 .fab a svg{width:28px;height:28px}
-.fab .ph{animation:ring 2.5s infinite}
 @keyframes ring{0%,100%{box-shadow:0 14px 30px -10px rgba(0,0,0,.4),0 0 0 0 var(--teal-glow)}50%{box-shadow:0 14px 30px -10px rgba(0,0,0,.4),0 0 0 14px transparent}}
 
 /* ===== RESPONSIVE ===== */
@@ -233,8 +229,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
   .nav-links{display:none}
   .hamburger{display:flex}
   .adv-grid,.branch-grid{grid-template-columns:repeat(2,1fr)}
-  .room,.contact-card{grid-template-columns:1fr}
-  .room-visual{display:none}
+  .contact-card{grid-template-columns:1fr}
   .nav-inner.open .nav-links{display:flex;position:absolute;inset-block-start:74px;inset-inline:4%;flex-direction:column;
     background:#fff;padding:16px;border-radius:20px;box-shadow:var(--shadow);align-items:stretch}
   .nav-inner{position:relative}
@@ -243,7 +238,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
   .adv-grid,.branch-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .hero-stats{gap:24px}
-  .room,.contact-side,.contact-form{padding:34px 24px}
+  .contact-side,.contact-form{padding:34px 24px}
   .sec{padding:64px 0}
 }
 </style>
@@ -261,11 +256,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
       <div class="nav-links">
         <a href="#advantages">למה אנחנו</a>
         <a href="#branches">סניפים</a>
-        <a href="#room">חדר מחשבים</a>
+        <a href="#branches" data-filter-link="room">חדרי מחשבים</a>
         <a href="#contact">צור קשר</a>
       </div>
       <a href="#branches" class="btn btn-primary" style="padding:10px 18px">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-5.5-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 5.5-9 11-9 11z" style="display:none"/><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         מצא סניף
       </a>
       <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
@@ -304,9 +299,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee">
-  <div class="marquee-track" id="marquee"></div>
-</div>
+<div class="marquee"><div class="marquee-track" id="marquee"></div></div>
 
 <!-- ADVANTAGES -->
 <section class="sec" id="advantages">
@@ -320,31 +313,29 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
   </div>
 </section>
 
-<!-- BRANCHES -->
+<!-- BRANCHES + COMPUTER ROOMS -->
 <section class="sec branches-sec" id="branches">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-tag">איפה תמצאו אותנו</span>
-      <h2>רשימת ה<em>סניפים</em></h2>
-      <p>בחרו את הסניף הקרוב אליכם — חייגו או נווטו בלחיצה אחת.</p>
+      <h2>הסניפים ו<em>חדרי המחשבים</em></h2>
+      <p>בחרו את המיקום הקרוב אליכם — חייגו או נווטו בלחיצה אחת.</p>
     </div>
     <div class="branch-tools reveal">
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="חיפוש לפי עיר או סניף...">
+        <input type="text" id="searchInput" placeholder="חיפוש לפי עיר או שם...">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       </div>
       <button class="filter-btn active" data-filter="all">הכל</button>
-      <button class="filter-btn" data-filter="active">פעילים</button>
-      <button class="filter-btn" data-filter="soon">בקרוב</button>
+      <button class="filter-btn" data-filter="rental">סניפי השכרה</button>
+      <button class="filter-btn" data-filter="room">חדרי מחשבים</button>
+    </div>
+    <div class="legend reveal">
+      <span><i class="l-rental"></i> סניף השכרה</span>
+      <span><i class="l-room"></i> חדר מחשבים</span>
+      <span><i class="l-soon"></i> נפתח בקרוב</span>
     </div>
     <div class="branch-grid" id="branchGrid"></div>
-  </div>
-</section>
-
-<!-- COMPUTER ROOM -->
-<section class="sec" id="room">
-  <div class="wrap">
-    <div class="room reveal" id="roomBox"></div>
   </div>
 </section>
 
@@ -353,9 +344,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
   <div class="wrap">
     <div class="contact-card reveal">
       <div class="contact-side">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.2z"/></svg></div>
         <h2>נשמח לעמוד לשירותכם</h2>
         <p>יש לכם שאלה? רוצים להזמין מחשב? השאירו פרטים ונחזור אליכם בהקדם.</p>
-        <div class="contact-info" id="contactInfo"></div>
       </div>
       <div class="contact-form">
         <form id="contactForm">
@@ -363,22 +354,22 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
           <input type="hidden" name="subject" value="פנייה חדשה מאתר אולטרנט">
           <input type="hidden" name="from_name" value="אתר אולטרנט">
           <input type="checkbox" name="botcheck" style="display:none">
+          <div class="field">
+            <label for="name">שם מלא</label>
+            <input type="text" id="name" name="name" required placeholder="השם שלכם">
+          </div>
           <div class="form-row">
-            <div class="field">
-              <label for="name">שם מלא</label>
-              <input type="text" id="name" name="name" required placeholder="השם שלכם">
-            </div>
             <div class="field">
               <label for="phone">טלפון</label>
               <input type="tel" id="phone" name="phone" required placeholder="050-0000000">
             </div>
+            <div class="field">
+              <label for="email">אימייל</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
           </div>
           <div class="field">
-            <label for="email">אימייל (לא חובה)</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com">
-          </div>
-          <div class="field">
-            <label for="message">ההודעה שלכם</label>
+            <label for="message">כתבו לנו הודעה</label>
             <textarea id="message" name="message" required placeholder="כתבו לנו כאן..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1.05rem" id="submitBtn">
@@ -403,25 +394,19 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
       <div class="foot-links">
         <a href="#advantages">למה אנחנו</a>
         <a href="#branches">סניפים</a>
-        <a href="#room">חדר מחשבים</a>
         <a href="#contact">צור קשר</a>
       </div>
     </div>
-    <div class="foot-bottom">
-      © <span id="year"></span> אולטרנט · גולשים בנח על בטוח · השכרת מחשבים ניידים בפריסה ארצית
-    </div>
+    <div class="foot-bottom">© <span id="year"></span> אולטרנט · גולשים בנח על בטוח · השכרת מחשבים ניידים בפריסה ארצית</div>
   </div>
 </footer>
 
-<!-- FLOATING BUTTONS -->
+<!-- FLOATING CALL -->
 <div class="fab" id="fab"></div>
 
 <script>
 const MAP_PROVIDER = "waze"; // waze | google
-function navLink(q){
-  const e=encodeURIComponent(q);
-  return MAP_PROVIDER==="waze" ? "https://waze.com/ul?q="+e+"&navigate=yes" : "https://www.google.com/maps/search/?api=1&query="+e;
-}
+function navLink(q){const e=encodeURIComponent(q);return MAP_PROVIDER==="waze" ? "https://waze.com/ul?q="+e+"&navigate=yes" : "https://www.google.com/maps/search/?api=1&query="+e;}
 function telLink(p){return "tel:"+String(p).replace(/[^0-9+]/g,"");}
 function icon(name){
   const I={
@@ -434,96 +419,69 @@ function icon(name){
   };
   return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(I[name]||I.shield)+'</svg>';
 }
+const pinSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+const addrSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+const phoneSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>';
+const navSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8z"/></svg>';
 
 let DATA=null, currentFilter="all";
-
-fetch('data/content.json').then(r=>r.json()).then(d=>{DATA=d;render();}).catch(e=>{
-  document.getElementById('branchGrid').innerHTML='<p class="no-results">שגיאה בטעינת הנתונים.</p>';
-});
+fetch('data/content.json').then(r=>r.json()).then(d=>{DATA=d;render();}).catch(()=>{document.getElementById('branchGrid').innerHTML='<p class="no-results">שגיאה בטעינת הנתונים.</p>';});
 
 function render(){
   const s=DATA.settings;
-  document.getElementById('heroTitle').innerHTML = s.heroTitle.replace(/(בפריסה ארצית|ארצית)/,'<span class="grad">$1</span>');
+  document.getElementById('heroTitle').innerHTML = s.heroTitle.replace(/(בפריסה ארצית)/,'<span class="grad">$1</span>');
   document.getElementById('heroSub').textContent = s.heroSubtitle;
   document.getElementById('brandTag').textContent = s.tagline;
   document.getElementById('year').textContent = new Date().getFullYear();
-
-  // advantages
-  document.getElementById('advGrid').innerHTML = DATA.advantages.map((a,i)=>
-    '<div class="adv-card reveal" style="transition-delay:'+(i*70)+'ms"><div class="adv-icon">'+icon(a.icon)+'</div><h3>'+a.title+'</h3><p>'+a.text+'</p></div>'
-  ).join('');
-
-  // marquee
+  document.getElementById('advGrid').innerHTML = DATA.advantages.map((a,i)=>'<div class="adv-card reveal" style="transition-delay:'+(i*70)+'ms"><div class="adv-icon">'+icon(a.icon)+'</div><h3>'+a.title+'</h3><p>'+a.text+'</p></div>').join('');
   const cities=[...new Set(DATA.branches.map(b=>b.city))];
   const items=cities.map(c=>'<span>'+c+'</span>').join('');
   document.getElementById('marquee').innerHTML=items+items+items+items;
-
+  document.getElementById('fab').innerHTML='<a href="'+telLink(s.mainPhone)+'" aria-label="חייג">'+phoneSvg+'</a>';
   renderBranches();
-  renderRoom();
-  renderContact();
   observe();
 }
 
 function renderBranches(){
   const q=(document.getElementById('searchInput').value||'').trim();
   let list=DATA.branches.filter(b=>{
-    const okF = currentFilter==="all" || b.status===currentFilter;
+    const okF = currentFilter==="all" || (b.kind||"rental")===currentFilter;
     const okQ = !q || (b.city+' '+b.name+' '+b.address).includes(q);
     return okF && okQ;
   });
   const grid=document.getElementById('branchGrid');
-  if(!list.length){grid.innerHTML='<p class="no-results">לא נמצאו סניפים תואמים.</p>';return;}
+  if(!list.length){grid.innerHTML='<p class="no-results">לא נמצאו תוצאות תואמות.</p>';observe();return;}
   grid.innerHTML=list.map((b,i)=>{
     const soon=b.status==="soon";
-    const wa=DATA.settings.whatsapp;
-    return '<div class="branch-card reveal '+(soon?'soon':'')+'" style="transition-delay:'+(i*50)+'ms">'
-      +'<div class="bar"></div>'
-      +'<span class="badge '+(soon?'soon':'on')+'">'+(soon?(b.note||'בקרוב'):'פעיל')+'</span>'
-      +'<span class="city"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'+b.city+'</span>'
+    const room=(b.kind||"rental")==="room";
+    const cls=(room?'room ':'')+(soon?'soon':'');
+    const badge=soon?'<span class="badge soon">'+(b.note||'בקרוב')+'</span>':'<span class="badge on">'+(room?'חדר מחשבים':'פעיל')+'</span>';
+    return '<div class="branch-card reveal '+cls+'" style="transition-delay:'+(i*45)+'ms">'
+      +'<div class="bar"></div>'+badge
+      +'<span class="city">'+pinSvg+b.city+'</span>'
       +'<h3>'+b.name+'</h3>'
-      +'<div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></svg><span>'+b.address+'</span></div>'
+      +'<div class="addr">'+addrSvg+'<span>'+b.address+'</span></div>'
       +'<div class="branch-actions">'
         +(soon
           ? '<a class="b-btn b-nav b-full" href="#contact">קבלת עדכון לכשייפתח</a>'
-          : '<a class="b-btn b-call" href="'+telLink(b.phone)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'+b.phone+'</a>'
-            +'<a class="b-btn b-nav" target="_blank" rel="noopener" href="'+navLink(b.mapQuery||b.address)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8z"/></svg>ניווט</a>')
-      +'</div>'
-      +(soon?'':'<a class="b-btn b-wa b-full" style="margin-top:10px" target="_blank" rel="noopener" href="https://wa.me/'+wa+'?text='+encodeURIComponent('שלום, אשמח לפרטים על סניף '+b.city)+'"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.3 3.8c1.5.6 2 .7 2.8.6a2.4 2.4 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.5-.3z"/></svg>וואטסאפ</a>')
-    +'</div>';
+          : '<a class="b-btn b-call" href="'+telLink(b.phone)+'">'+phoneSvg+b.phone+'</a>'
+            +'<a class="b-btn b-nav" target="_blank" rel="noopener" href="'+navLink(b.mapQuery||b.address)+'">'+navSvg+'ניווט</a>')
+      +'</div></div>';
   }).join('');
   observe();
 }
 
-function renderRoom(){
-  const r=DATA.computerRoom;
-  const box=document.getElementById('roomBox');
-  if(!r||!r.show){document.getElementById('room').style.display='none';return;}
-  box.innerHTML=
-    '<div><span class="room-badge"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4"/></svg> '+r.city+'</span>'
-    +'<h2>'+r.title+'</h2><p>'+r.text+'</p>'
-    +'<div class="room-actions">'
-      +'<a class="btn btn-ghost" href="'+telLink(r.phone)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'+r.phone+'</a>'
-      +'<a class="btn btn-ghost" target="_blank" rel="noopener" href="'+navLink(r.mapQuery||r.address)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8z"/></svg>ניווט לחדר</a>'
-    +'</div></div>'
-    +'<div class="room-visual"><div class="screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></div></div>';
-}
-
-function renderContact(){
-  const s=DATA.settings;
-  document.getElementById('contactInfo').innerHTML=
-    '<a href="'+telLink(s.mainPhone)+'"><span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>'+s.mainPhone+'</a>'
-    +'<a target="_blank" rel="noopener" href="https://wa.me/'+s.whatsapp+'"><span class="ci-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2z"/></svg></span>וואטסאפ</a>'
-    +'<a href="mailto:'+s.email+'"><span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>'+s.email+'</a>';
-  document.getElementById('fab').innerHTML=
-    '<a class="wa" target="_blank" rel="noopener" href="https://wa.me/'+s.whatsapp+'" aria-label="וואטסאפ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20z"/></svg></a>'
-    +'<a class="ph" href="'+telLink(s.mainPhone)+'" aria-label="חייג"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>';
-}
-
-// search + filters
 document.getElementById('searchInput').addEventListener('input',renderBranches);
 document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{
   document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
   b.classList.add('active');currentFilter=b.dataset.filter;renderBranches();
+}));
+// nav link that sets a filter (חדרי מחשבים)
+document.querySelectorAll('[data-filter-link]').forEach(a=>a.addEventListener('click',()=>{
+  const f=a.dataset.filterLink;
+  const btn=document.querySelector('.filter-btn[data-filter="'+f+'"]');
+  if(btn){document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');currentFilter=f;renderBranches();}
+  document.getElementById('navInner').classList.remove('open');
 }));
 
 // contact form (Web3Forms)
@@ -531,29 +489,23 @@ document.getElementById('contactForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const btn=document.getElementById('submitBtn'), msg=document.getElementById('formMsg');
   const key=e.target.access_key.value;
-  if(!key||key==="YOUR_WEB3FORMS_ACCESS_KEY"){
-    msg.className='form-msg err';msg.textContent='הטופס עדיין לא חובר (חסר מפתח Web3Forms). ראו מדריך ההקמה.';return;
-  }
+  if(!key||key==="YOUR_WEB3FORMS_ACCESS_KEY"){msg.className='form-msg err';msg.textContent='הטופס עדיין לא חובר (חסר מפתח Web3Forms). ראו מדריך ההקמה.';return;}
   btn.disabled=true;btn.style.opacity=.6;msg.className='form-msg';msg.style.display='none';
   try{
     const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(e.target)))});
     const d=await res.json();
     if(d.success){msg.className='form-msg ok';msg.textContent='הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם.';e.target.reset();}
-    else{msg.className='form-msg err';msg.textContent='אירעה שגיאה. נסו שוב או התקשרו אלינו.';}
+    else{msg.className='form-msg err';msg.textContent='אירעה שגיאה. נסו שוב או פנו אלינו.';}
   }catch(err){msg.className='form-msg err';msg.textContent='אירעה שגיאה בשליחה. נסו שוב מאוחר יותר.';}
   btn.disabled=false;btn.style.opacity=1;
 });
 
-// reveal on scroll
 let io;
 function observe(){
   if(io)io.disconnect();
   io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 }
-
-// counters
-const counters=document.querySelectorAll('.count');
 const cio=new IntersectionObserver(es=>es.forEach(en=>{
   if(en.isIntersecting){
     const el=en.target,to=+el.dataset.to,suf=el.dataset.suffix||'';let n=0;
@@ -562,21 +514,18 @@ const cio=new IntersectionObserver(es=>es.forEach(en=>{
     cio.unobserve(el);
   }
 }),{threshold:.5});
-counters.forEach(c=>cio.observe(c));
+document.querySelectorAll('.count').forEach(c=>cio.observe(c));
 
-// header scroll + mobile menu
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',scrollY>30));
 document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navInner').classList.toggle('open'));
-document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navInner').classList.remove('open')));
+document.querySelectorAll('.nav-links a:not([data-filter-link])').forEach(a=>a.addEventListener('click',()=>document.getElementById('navInner').classList.remove('open')));
 </script>
 <!-- Netlify Identity (מאפשר התחברות לפאנל הניהול) -->
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
-      }
+      if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); }
     });
   }
 </script>
