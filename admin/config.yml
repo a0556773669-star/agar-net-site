@@ -26,6 +26,14 @@ collections:
               - {label: "תת-כותרת (Hero)", name: "heroSubtitle", widget: "text"}
               - {label: "טלפון ראשי (לכפתור החיוג הצף)", name: "mainPhone", widget: "string"}
               - {label: "אימייל לקבלת פניות", name: "email", widget: "string"}
+              - label: "מספרים מוצגים (Hero)"
+                name: "stats"
+                widget: "list"
+                label_singular: "מספר"
+                summary: "{{fields.value}} — {{fields.label}}"
+                fields:
+                  - {label: "ערך (למשל 40 או 100%)", name: "value", widget: "string"}
+                  - {label: "תיאור", name: "label", widget: "string"}
           - label: "יתרונות / בידול"
             name: "advantages"
             widget: "list"
