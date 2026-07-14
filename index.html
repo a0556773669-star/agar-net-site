@@ -38,6 +38,8 @@ header.scrolled .nav-inner{background:rgba(255,255,255,.94);box-shadow:0 14px 34
 .brand .logo-mark::after{content:"";position:absolute;inset-block-start:-2px;inset-inline-end:-2px;width:14px;height:14px;background:var(--red);border-radius:0 13px 0 8px}
 .brand b{color:var(--teal-dark)}
 .brand small{display:block;font-size:.62rem;font-weight:500;color:var(--muted);letter-spacing:.5px;font-family:'Heebo'}
+.brand-logo{height:50px;width:auto;display:block}
+@media(max-width:600px){.brand-logo{height:40px}}
 .nav-links{display:flex;gap:6px;align-items:center}
 .nav-links a{padding:9px 16px;border-radius:30px;font-weight:500;font-size:.95rem;color:var(--ink);transition:.25s}
 .nav-links a:hover{background:rgba(18,152,138,.1);color:var(--teal-dark)}
@@ -158,12 +160,12 @@ header.scrolled .nav-inner{background:rgba(255,255,255,.94);box-shadow:0 14px 34
 /* soon variant */
 .branch-card.soon{background:linear-gradient(180deg,#fff,#fff7f6);border-color:rgba(226,35,26,.18)}
 .branch-card.soon .bar{background:linear-gradient(90deg,var(--red),#ff6b5e)}
-.badge{position:absolute;inset-block-start:18px;inset-inline-start:18px;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:20px}
+.badge{position:absolute;inset-block-start:18px;inset-inline-end:18px;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:20px}
 .badge.on{background:rgba(18,152,138,.12);color:var(--teal-dark)}
 .badge.soon{background:var(--red);color:#fff;overflow:hidden;position:absolute}
 .badge.soon::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.5),transparent 70%);animation:shine 2.4s infinite}
 @keyframes shine{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
-.branch-card .city{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.85rem;margin-bottom:6px}
+.branch-card .city{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.85rem;margin-bottom:6px;padding-inline-end:76px}
 .branch-card .city svg{width:15px;height:15px}
 .branch-card h3{font-family:'Rubik';font-weight:800;font-size:1.3rem;margin-bottom:12px;padding-inline-end:90px}
 .branch-card .addr{display:flex;gap:8px;color:var(--muted);font-size:.95rem;margin-bottom:18px}
@@ -250,8 +252,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
   <nav class="nav">
     <div class="nav-inner" id="navInner">
       <a href="#top" class="brand">
-        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></span>
-        <span>אולטר<b>נט</b><small id="brandTag">גולשים בנח על בטוח</small></span>
+        <img src="assets/logo.png" alt="אולטרנט" class="brand-logo" onerror="this.style.display='none';var f=this.nextElementSibling;if(f)f.style.display='flex';">
+        <span class="brand-fallback" style="display:none;align-items:center;gap:12px">
+          <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></span>
+          <span>אולטר<b>נט</b><small id="brandTag">גולשים בנח על בטוח</small></span>
+        </span>
       </a>
       <div class="nav-links">
         <a href="#advantages">למה אנחנו</a>
@@ -289,11 +294,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
         צור קשר
       </a>
     </div>
-    <div class="hero-stats">
-      <div class="stat"><b class="count" data-to="40">0</b><span>סניפים בפריסה</span></div>
-      <div class="stat"><b class="count" data-to="15" data-suffix="+">0</b><span>ערים ברחבי הארץ</span></div>
-      <div class="stat"><b>100%</b><span>מסונן ובטוח</span></div>
-    </div>
+    <div class="hero-stats" id="heroStats"></div>
   </div>
   <div class="wave"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#f4faf9" d="M0,40 C360,90 720,0 1080,30 C1260,45 1380,55 1440,40 L1440,80 L0,80 Z"/></svg></div>
 </section>
@@ -431,6 +432,12 @@ function render(){
   document.getElementById('heroSub').textContent = s.heroSubtitle;
   document.getElementById('brandTag').textContent = s.tagline;
   document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('heroStats').innerHTML = (s.stats||[]).map(st=>{
+    const m=String(st.value).match(/^(\d+)(.*)$/);
+    if(m){return '<div class="stat"><b class="count" data-to="'+m[1]+'" data-suffix="'+m[2].replace(/"/g,'')+'">0</b><span>'+st.label+'</span></div>';}
+    return '<div class="stat"><b>'+st.value+'</b><span>'+st.label+'</span></div>';
+  }).join('');
+  setupCounters();
   document.getElementById('advGrid').innerHTML = DATA.advantages.map((a,i)=>'<div class="adv-card reveal" style="transition-delay:'+(i*70)+'ms"><div class="adv-icon">'+icon(a.icon)+'</div><h3>'+a.title+'</h3><p>'+a.text+'</p></div>').join('');
   const cities=[...new Set(DATA.branches.map(b=>b.city))];
   const items=cities.map(c=>'<span>'+c+'</span>').join('');
@@ -502,15 +509,19 @@ function observe(){
   io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
   document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
 }
-const cio=new IntersectionObserver(es=>es.forEach(en=>{
-  if(en.isIntersecting){
-    const el=en.target,to=+el.dataset.to,suf=el.dataset.suffix||'';let n=0;
-    const step=Math.max(1,Math.ceil(to/40));
-    const t=setInterval(()=>{n+=step;if(n>=to){n=to;clearInterval(t);}el.textContent=n+suf;},28);
-    cio.unobserve(el);
-  }
-}),{threshold:.5});
-document.querySelectorAll('.count').forEach(c=>cio.observe(c));
+let cio;
+function setupCounters(){
+  if(cio)cio.disconnect();
+  cio=new IntersectionObserver(es=>es.forEach(en=>{
+    if(en.isIntersecting){
+      const el=en.target,to=+el.dataset.to,suf=el.dataset.suffix||'';let n=0;
+      const step=Math.max(1,Math.ceil(to/40));
+      const t=setInterval(()=>{n+=step;if(n>=to){n=to;clearInterval(t);}el.textContent=n+suf;},28);
+      cio.unobserve(el);
+    }
+  }),{threshold:.5});
+  document.querySelectorAll('.count').forEach(c=>cio.observe(c));
+}
 
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',scrollY>30));
 document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navInner').classList.toggle('open'));
