@@ -1,0 +1,80 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: he
+site_url: /
+display_url: /
+logo_url: /
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "content"
+    label: "תוכן האתר"
+    delete: false
+    files:
+      - name: "main"
+        label: "הגדרות, יתרונות וסניפים"
+        file: "data/content.json"
+        format: "json"
+        fields:
+          - label: "הגדרות כלליות"
+            name: "settings"
+            widget: "object"
+            fields:
+              - {label: "שם העסק", name: "businessName", widget: "string"}
+              - {label: "סלוגן", name: "tagline", widget: "string"}
+              - {label: "כותרת ראשית (Hero)", name: "heroTitle", widget: "string"}
+              - {label: "תת-כותרת (Hero)", name: "heroSubtitle", widget: "text"}
+              - {label: "טלפון ראשי", name: "mainPhone", widget: "string"}
+              - {label: "וואטסאפ (בפורמט בינלאומי, לדוגמה 972501234567)", name: "whatsapp", widget: "string"}
+              - {label: "אימייל לקבלת פניות", name: "email", widget: "string"}
+          - label: "יתרונות / בידול"
+            name: "advantages"
+            widget: "list"
+            label_singular: "יתרון"
+            summary: "{{fields.title}}"
+            fields:
+              - label: "אייקון"
+                name: "icon"
+                widget: "select"
+                options:
+                  - {label: "מגן (אבטחה)", value: "shield"}
+                  - {label: "מפה (פריסה)", value: "map"}
+                  - {label: "ברק (מהירות)", value: "bolt"}
+                  - {label: "ארנק (מחיר)", value: "wallet"}
+                  - {label: "אוזניות (תמיכה)", value: "headset"}
+                  - {label: "נצנצים (איכות)", value: "sparkles"}
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "תיאור", name: "text", widget: "text"}
+          - label: "חדר מחשבים"
+            name: "computerRoom"
+            widget: "object"
+            fields:
+              - {label: "להציג באתר?", name: "show", widget: "boolean", default: true}
+              - {label: "כותרת", name: "title", widget: "string"}
+              - {label: "עיר", name: "city", widget: "string"}
+              - {label: "תיאור", name: "text", widget: "text"}
+              - {label: "טלפון", name: "phone", widget: "string"}
+              - {label: "כתובת", name: "address", widget: "string"}
+              - {label: "טקסט לניווט (עיר + רחוב)", name: "mapQuery", widget: "string"}
+          - label: "סניפים"
+            name: "branches"
+            widget: "list"
+            label_singular: "סניף"
+            summary: "{{fields.city}} — {{fields.name}}"
+            fields:
+              - {label: "עיר", name: "city", widget: "string"}
+              - {label: "שם הסניף", name: "name", widget: "string"}
+              - {label: "טלפון", name: "phone", widget: "string"}
+              - {label: "כתובת מלאה", name: "address", widget: "string"}
+              - {label: "טקסט לניווט (עיר + רחוב)", name: "mapQuery", widget: "string", required: false}
+              - label: "סטטוס"
+                name: "status"
+                widget: "select"
+                default: "active"
+                options:
+                  - {label: "פעיל", value: "active"}
+                  - {label: "בקרוב סניף חדש", value: "soon"}
+              - {label: "הערה (למשל: נפתח בקרוב!)", name: "note", widget: "string", required: false}
