@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אגר-נט | השכרת מחשבים ניידים בפריסה ארצית</title>
+<meta name="description" content="השכרת מחשבים ניידים מסוננים ובטוחים בעשרות סניפים ברחבי הארץ, במיוחד לציבור החרדי. גולשים בנח על בטוח.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Rubik:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#12988a; --teal-dark:#0b6b60; --teal-light:#38c8b6; --teal-glow:rgba(56,200,182,.45);
+  --red:#e2231a; --red-dark:#b81810;
+  --ink:#14161b; --muted:#5a6b68; --bg:#f4faf9; --card:#ffffff;
+  --shadow:0 18px 45px -20px rgba(11,107,96,.45);
+  --radius:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo','Rubik',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1180px,92%);margin-inline:auto}
+section{position:relative}
+
+/* ===== HEADER ===== */
+header{position:fixed;inset-block-start:0;inset-inline:0;z-index:50;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:min(1180px,92%);margin-inline:auto;
+  background:rgba(255,255,255,.72);backdrop-filter:blur(14px);border:1px solid rgba(18,152,138,.14);
+  border-radius:60px;padding:10px 22px;box-shadow:0 10px 30px -18px rgba(11,107,96,.5);transition:.35s}
+header.scrolled .nav-inner{background:rgba(255,255,255,.94);box-shadow:0 14px 34px -18px rgba(11,107,96,.6)}
+.brand{display:flex;align-items:center;gap:12px;font-family:'Rubik';font-weight:900;font-size:1.5rem}
+.brand .logo-mark{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dark));box-shadow:0 6px 18px -6px var(--teal-glow);position:relative;overflow:hidden}
+.brand .logo-mark svg{width:26px;height:26px}
+.brand .logo-mark::after{content:"";position:absolute;inset-block-start:-2px;inset-inline-end:-2px;width:14px;height:14px;background:var(--red);border-radius:0 13px 0 8px}
+.brand b{color:var(--teal-dark)}
+.brand small{display:block;font-size:.62rem;font-weight:500;color:var(--muted);letter-spacing:.5px;font-family:'Heebo'}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{padding:9px 16px;border-radius:30px;font-weight:500;font-size:.95rem;color:var(--ink);transition:.25s}
+.nav-links a:hover{background:rgba(18,152,138,.1);color:var(--teal-dark)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:40px;font-weight:700;font-size:.95rem;
+  border:none;cursor:pointer;transition:.3s;font-family:inherit}
+.btn svg{width:18px;height:18px}
+.btn-primary{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;box-shadow:0 12px 26px -12px var(--teal-glow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 34px -12px var(--teal-glow)}
+.btn-red{background:linear-gradient(135deg,var(--red),var(--red-dark));color:#fff;box-shadow:0 12px 26px -12px rgba(226,35,26,.5)}
+.btn-red:hover{transform:translateY(-3px)}
+.btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn-ghost:hover{background:rgba(255,255,255,.28);transform:translateY(-3px)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{width:26px;height:3px;background:var(--teal-dark);border-radius:3px;transition:.3s}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 80px;position:relative;overflow:hidden;
+  background:radial-gradient(1200px 600px at 80% -10%,rgba(56,200,182,.35),transparent 60%),
+             radial-gradient(900px 500px at 5% 100%,rgba(18,152,138,.28),transparent 55%),
+             linear-gradient(160deg,#0d7a6e 0%,#0b6b60 40%,#0a5c53 100%)}
+.hero::before{content:"";position:absolute;inset:0;background-image:
+  linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:46px 46px;
+  mask-image:radial-gradient(700px 500px at 70% 40%,#000,transparent 80%)}
+.blob{position:absolute;border-radius:50%;filter:blur(50px);opacity:.55;animation:float 14s ease-in-out infinite}
+.blob.b1{width:340px;height:340px;background:var(--teal-light);inset-block-start:-60px;inset-inline-start:-40px}
+.blob.b2{width:280px;height:280px;background:#0fd6bd;inset-block-end:-40px;inset-inline-end:8%;animation-delay:-4s}
+.blob.b3{width:180px;height:180px;background:var(--red);opacity:.28;inset-block-start:30%;inset-inline-end:30%;animation-delay:-8s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(25px,-30px) scale(1.08)}66%{transform:translate(-20px,20px) scale(.95)}}
+.float-icon{position:absolute;color:rgba(255,255,255,.16);animation:drift 16s ease-in-out infinite}
+.float-icon svg{width:100%;height:100%}
+.float-icon.f1{width:70px;height:70px;inset-block-start:22%;inset-inline-start:12%;animation-delay:-2s}
+.float-icon.f2{width:52px;height:52px;inset-block-start:65%;inset-inline-start:20%;animation-delay:-6s}
+.float-icon.f3{width:60px;height:60px;inset-block-start:30%;inset-inline-end:14%;animation-delay:-9s}
+.float-icon.f4{width:44px;height:44px;inset-block-end:16%;inset-inline-end:24%;animation-delay:-4s}
+@keyframes drift{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-28px) rotate(6deg)}}
+.hero-inner{position:relative;z-index:2;color:#fff;max-width:760px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);
+  padding:8px 18px;border-radius:40px;font-weight:500;font-size:.9rem;margin-bottom:26px;backdrop-filter:blur(6px);
+  animation:fadeUp .8s both}
+.eyebrow .dot{width:9px;height:9px;border-radius:50%;background:#5ff3dc;box-shadow:0 0 0 0 #5ff3dc;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(95,243,220,.7)}70%{box-shadow:0 0 0 12px rgba(95,243,220,0)}100%{box-shadow:0 0 0 0 rgba(95,243,220,0)}}
+.hero h1{font-family:'Rubik';font-weight:900;font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.08;margin-bottom:22px;animation:fadeUp .8s .1s both}
+.hero h1 .grad{background:linear-gradient(90deg,#8affe8,#5ff3dc,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:clamp(1.05rem,2.3vw,1.35rem);color:rgba(255,255,255,.9);max-width:620px;margin-bottom:34px;animation:fadeUp .8s .2s both}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .8s .3s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-stats{display:flex;gap:38px;margin-top:52px;flex-wrap:wrap;animation:fadeUp .8s .45s both}
+.hero-stats .stat b{font-family:'Rubik';font-weight:900;font-size:2.4rem;display:block;line-height:1}
+.hero-stats .stat span{font-size:.9rem;color:rgba(255,255,255,.75)}
+.wave{position:absolute;inset-block-end:-1px;inset-inline:0;line-height:0}
+.wave svg{width:100%;height:80px;display:block}
+
+/* ===== MARQUEE ===== */
+.marquee{background:var(--ink);color:#fff;padding:16px 0;overflow:hidden;white-space:nowrap;position:relative}
+.marquee-track{display:inline-flex;gap:40px;animation:scroll 28s linear infinite;will-change:transform}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:'Rubik';font-weight:700;font-size:1.05rem;display:inline-flex;align-items:center;gap:14px;color:rgba(255,255,255,.85)}
+.marquee span::after{content:"◆";color:var(--teal-light);font-size:.7rem}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+/* ===== SECTION HEADS ===== */
+.sec{padding:90px 0}
+.sec-head{text-align:center;max-width:640px;margin:0 auto 54px}
+.sec-tag{display:inline-block;color:var(--teal-dark);font-weight:700;letter-spacing:1px;font-size:.9rem;
+  background:rgba(18,152,138,.1);padding:6px 16px;border-radius:30px;margin-bottom:16px}
+.sec-head h2{font-family:'Rubik';font-weight:900;font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;margin-bottom:14px}
+.sec-head h2 em{font-style:normal;color:var(--teal-dark);position:relative}
+.sec-head h2 em::after{content:"";position:absolute;inset-inline:0;inset-block-end:4px;height:10px;background:rgba(56,200,182,.3);z-index:-1;border-radius:4px}
+.sec-head p{color:var(--muted);font-size:1.1rem}
+
+/* ===== ADVANTAGES ===== */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.adv-card{background:var(--card);border-radius:var(--radius);padding:34px 28px;box-shadow:var(--shadow);
+  border:1px solid rgba(18,152,138,.08);position:relative;overflow:hidden;transition:.4s}
+.adv-card::before{content:"";position:absolute;inset-block-start:0;inset-inline-end:0;width:120px;height:120px;
+  background:radial-gradient(circle at top right,rgba(56,200,182,.16),transparent 70%);transition:.4s}
+.adv-card:hover{transform:translateY(-8px);box-shadow:0 30px 55px -25px rgba(11,107,96,.55);border-color:rgba(18,152,138,.25)}
+.adv-icon{width:62px;height:62px;border-radius:18px;display:grid;place-items:center;margin-bottom:20px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;box-shadow:0 12px 24px -10px var(--teal-glow);transition:.4s}
+.adv-card:hover .adv-icon{transform:rotate(-8deg) scale(1.06)}
+.adv-icon svg{width:30px;height:30px}
+.adv-card h3{font-family:'Rubik';font-weight:800;font-size:1.35rem;margin-bottom:10px}
+.adv-card p{color:var(--muted)}
+
+/* ===== BRANCHES ===== */
+.branches-sec{background:linear-gradient(180deg,transparent,rgba(18,152,138,.05) 30%,rgba(18,152,138,.05) 70%,transparent)}
+.branch-tools{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.search-box{position:relative;flex:1;max-width:420px;min-width:240px}
+.search-box input{width:100%;padding:15px 50px 15px 20px;border-radius:40px;border:1.5px solid rgba(18,152,138,.2);
+  font-family:inherit;font-size:1rem;background:#fff;transition:.3s}
+.search-box input:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(18,152,138,.12)}
+.search-box svg{position:absolute;inset-block-start:50%;inset-inline-end:18px;transform:translateY(-50%);width:20px;height:20px;color:var(--teal-dark)}
+.filter-btn{padding:13px 22px;border-radius:40px;border:1.5px solid rgba(18,152,138,.2);background:#fff;
+  font-family:inherit;font-weight:600;cursor:pointer;transition:.3s;color:var(--muted)}
+.filter-btn.active,.filter-btn:hover{background:var(--teal-dark);color:#fff;border-color:var(--teal-dark)}
+.branch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.branch-card{background:var(--card);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);
+  border:1px solid rgba(18,152,138,.1);position:relative;overflow:hidden;transition:.4s;display:flex;flex-direction:column}
+.branch-card:hover{transform:translateY(-6px);box-shadow:0 30px 55px -25px rgba(11,107,96,.5)}
+.branch-card .bar{position:absolute;inset-block-start:0;inset-inline:0;height:5px;background:linear-gradient(90deg,var(--teal),var(--teal-light))}
+.branch-card.soon{background:linear-gradient(180deg,#fff,#fff7f6);border-color:rgba(226,35,26,.18)}
+.branch-card.soon .bar{background:linear-gradient(90deg,var(--red),#ff6b5e)}
+.badge{position:absolute;inset-block-start:18px;inset-inline-start:18px;font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:20px}
+.badge.on{background:rgba(18,152,138,.12);color:var(--teal-dark)}
+.badge.soon{background:var(--red);color:#fff;overflow:hidden;position:absolute}
+.badge.soon::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.5),transparent 70%);animation:shine 2.4s infinite}
+@keyframes shine{from{transform:translateX(-120%)}to{transform:translateX(120%)}}
+.branch-card .city{display:inline-flex;align-items:center;gap:7px;color:var(--teal-dark);font-weight:700;font-size:.85rem;margin-bottom:6px}
+.branch-card .city svg{width:15px;height:15px}
+.branch-card h3{font-family:'Rubik';font-weight:800;font-size:1.3rem;margin-bottom:12px;padding-inline-end:70px}
+.branch-card .addr{display:flex;gap:8px;color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.branch-card .addr svg{width:17px;height:17px;flex-shrink:0;margin-top:3px;color:var(--teal)}
+.branch-actions{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.b-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:11px;border-radius:14px;
+  font-weight:700;font-size:.9rem;transition:.25s;cursor:pointer;border:none;font-family:inherit}
+.b-btn svg{width:16px;height:16px}
+.b-call{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff}
+.b-call:hover{transform:translateY(-2px);box-shadow:0 10px 20px -8px var(--teal-glow)}
+.b-nav{background:rgba(18,152,138,.1);color:var(--teal-dark)}
+.b-nav:hover{background:rgba(18,152,138,.2)}
+.b-wa{background:rgba(37,211,102,.12);color:#128c3e}
+.b-wa:hover{background:rgba(37,211,102,.22)}
+.b-full{grid-column:1 / -1}
+.no-results{text-align:center;color:var(--muted);grid-column:1/-1;padding:40px;font-size:1.1rem}
+
+/* ===== COMPUTER ROOM ===== */
+.room{background:linear-gradient(135deg,#0d7a6e,#0a5c53);border-radius:34px;padding:56px;color:#fff;
+  position:relative;overflow:hidden;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.room::before{content:"";position:absolute;inset-block-start:-80px;inset-inline-start:-80px;width:300px;height:300px;
+  background:radial-gradient(circle,var(--teal-glow),transparent 70%);filter:blur(30px)}
+.room-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  padding:7px 16px;border-radius:30px;font-weight:600;font-size:.9rem;margin-bottom:18px}
+.room h2{font-family:'Rubik';font-weight:900;font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:16px;position:relative;z-index:2}
+.room p{color:rgba(255,255,255,.9);font-size:1.1rem;margin-bottom:26px;position:relative;z-index:2}
+.room-actions{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
+.room-visual{position:relative;z-index:2;display:grid;place-items:center}
+.room-visual .screen{width:100%;aspect-ratio:4/3;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
+  border-radius:20px;display:grid;place-items:center;backdrop-filter:blur(6px)}
+.room-visual .screen svg{width:45%;height:45%;color:rgba(255,255,255,.55);animation:float 6s ease-in-out infinite}
+
+/* ===== CONTACT ===== */
+.contact-sec{padding:90px 0}
+.contact-card{background:var(--card);border-radius:34px;box-shadow:0 30px 70px -30px rgba(11,107,96,.4);
+  display:grid;grid-template-columns:1fr 1.2fr;overflow:hidden;border:1px solid rgba(18,152,138,.1)}
+.contact-side{background:linear-gradient(160deg,#0d7a6e,#0a5c53);color:#fff;padding:48px 40px;position:relative;overflow:hidden}
+.contact-side::after{content:"";position:absolute;inset-block-end:-60px;inset-inline-end:-60px;width:220px;height:220px;
+  background:radial-gradient(circle,var(--teal-glow),transparent 70%);filter:blur(20px)}
+.contact-side h2{font-family:'Rubik';font-weight:900;font-size:2rem;margin-bottom:14px;position:relative;z-index:2}
+.contact-side p{color:rgba(255,255,255,.88);margin-bottom:30px;position:relative;z-index:2}
+.contact-info{position:relative;z-index:2;display:flex;flex-direction:column;gap:18px}
+.contact-info a{display:flex;align-items:center;gap:14px;font-weight:500}
+.contact-info .ci-ic{width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.15);display:grid;place-items:center;flex-shrink:0}
+.contact-info .ci-ic svg{width:20px;height:20px}
+.contact-form{padding:48px 40px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:7px;color:var(--ink)}
+.field input,.field textarea{width:100%;padding:14px 16px;border-radius:14px;border:1.5px solid rgba(18,152,138,.18);
+  font-family:inherit;font-size:1rem;transition:.3s;background:#fbfefe}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px rgba(18,152,138,.1)}
+.field textarea{resize:vertical;min-height:120px}
+.form-msg{padding:14px;border-radius:12px;font-weight:600;text-align:center;margin-top:8px;display:none}
+.form-msg.ok{display:block;background:rgba(18,152,138,.12);color:var(--teal-dark)}
+.form-msg.err{display:block;background:rgba(226,35,26,.1);color:var(--red-dark)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;margin-top:20px}
+.foot-grid{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand{display:flex;align-items:center;gap:12px;color:#fff;font-family:'Rubik';font-weight:900;font-size:1.4rem}
+.foot-brand .logo-mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--teal-dark));display:grid;place-items:center}
+.foot-brand .logo-mark svg{width:22px;height:22px}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot-links a:hover{color:var(--teal-light)}
+.foot-bottom{padding-top:22px;text-align:center;font-size:.85rem;color:rgba(255,255,255,.45)}
+.foot-bottom a{color:var(--teal-light)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ===== FLOATING CALL ===== */
+.fab{position:fixed;inset-block-end:24px;inset-inline-start:24px;z-index:40;display:flex;flex-direction:column;gap:12px}
+.fab a{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.4);transition:.3s;color:#fff}
+.fab a:hover{transform:scale(1.1) translateY(-2px)}
+.fab .wa{background:#25d366}
+.fab .ph{background:linear-gradient(135deg,var(--teal),var(--teal-dark))}
+.fab a svg{width:28px;height:28px}
+.fab .ph{animation:ring 2.5s infinite}
+@keyframes ring{0%,100%{box-shadow:0 14px 30px -10px rgba(0,0,0,.4),0 0 0 0 var(--teal-glow)}50%{box-shadow:0 14px 30px -10px rgba(0,0,0,.4),0 0 0 14px transparent}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .adv-grid,.branch-grid{grid-template-columns:repeat(2,1fr)}
+  .room,.contact-card{grid-template-columns:1fr}
+  .room-visual{display:none}
+  .nav-inner.open .nav-links{display:flex;position:absolute;inset-block-start:74px;inset-inline:4%;flex-direction:column;
+    background:#fff;padding:16px;border-radius:20px;box-shadow:var(--shadow);align-items:stretch}
+  .nav-inner{position:relative}
+}
+@media(max-width:600px){
+  .adv-grid,.branch-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .hero-stats{gap:24px}
+  .room,.contact-side,.contact-form{padding:34px 24px}
+  .sec{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <nav class="nav">
+    <div class="nav-inner" id="navInner">
+      <a href="#top" class="brand">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></span>
+        <span>אגר<b>-נט</b><small id="brandTag">גולשים בנח על בטוח</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#advantages">למה אנחנו</a>
+        <a href="#branches">סניפים</a>
+        <a href="#room">חדר מחשבים</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+      <a href="#branches" class="btn btn-primary" style="padding:10px 18px">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-5.5-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 5.5-9 11-9 11z" style="display:none"/><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        מצא סניף
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="float-icon f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></div>
+  <div class="float-icon f2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 4 6v6c0 5 8 8 8 8s8-3 8-8V6z"/></svg></div>
+  <div class="float-icon f3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4"/></svg></div>
+  <div class="float-icon f4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2 3 14h7l-1 8 10-12h-7z"/></svg></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="dot"></span> פריסה ארצית • שירות לציבור החרדי</span>
+    <h1 id="heroTitle">השכרת מחשבים ניידים <span class="grad">בפריסה ארצית</span></h1>
+    <p class="lead" id="heroSub">מחשבים ניידים מוכנים לשימוש, מסוננים ובטוחים — זמינים בעשרות סניפים ברחבי הארץ.</p>
+    <div class="hero-cta">
+      <a href="#branches" class="btn btn-ghost">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        רשימת הסניפים
+      </a>
+      <a href="#contact" class="btn btn-red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H5.2L4 17.2z"/></svg>
+        צור קשר
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b class="count" data-to="40">0</b><span>סניפים בפריסה</span></div>
+      <div class="stat"><b class="count" data-to="15" data-suffix="+">0</b><span>ערים ברחבי הארץ</span></div>
+      <div class="stat"><b>100%</b><span>מסונן ובטוח</span></div>
+    </div>
+  </div>
+  <div class="wave"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#f4faf9" d="M0,40 C360,90 720,0 1080,30 C1260,45 1380,55 1440,40 L1440,80 L0,80 Z"/></svg></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track" id="marquee"></div>
+</div>
+
+<!-- ADVANTAGES -->
+<section class="sec" id="advantages">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">היתרונות שלנו</span>
+      <h2>למה בוחרים ב<em>אגר-נט</em>?</h2>
+      <p>כל מה שחשוב לכם — במקום אחד, בשקט נפשי מוחלט.</p>
+    </div>
+    <div class="adv-grid" id="advGrid"></div>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="sec branches-sec" id="branches">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">איפה תמצאו אותנו</span>
+      <h2>רשימת ה<em>סניפים</em></h2>
+      <p>בחרו את הסניף הקרוב אליכם — חייגו או נווטו בלחיצה אחת.</p>
+    </div>
+    <div class="branch-tools reveal">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="חיפוש לפי עיר או סניף...">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+      <button class="filter-btn active" data-filter="all">הכל</button>
+      <button class="filter-btn" data-filter="active">פעילים</button>
+      <button class="filter-btn" data-filter="soon">בקרוב</button>
+    </div>
+    <div class="branch-grid" id="branchGrid"></div>
+  </div>
+</section>
+
+<!-- COMPUTER ROOM -->
+<section class="sec" id="room">
+  <div class="wrap">
+    <div class="room reveal" id="roomBox"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="contact-side">
+        <h2>נשמח לעמוד לשירותכם</h2>
+        <p>יש לכם שאלה? רוצים להזמין מחשב? השאירו פרטים ונחזור אליכם בהקדם.</p>
+        <div class="contact-info" id="contactInfo"></div>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="פנייה חדשה מאתר אגר-נט">
+          <input type="hidden" name="from_name" value="אתר אגר-נט">
+          <input type="checkbox" name="botcheck" style="display:none">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">שם מלא</label>
+              <input type="text" id="name" name="name" required placeholder="השם שלכם">
+            </div>
+            <div class="field">
+              <label for="phone">טלפון</label>
+              <input type="tel" id="phone" name="phone" required placeholder="050-0000000">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">אימייל (לא חובה)</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="message">ההודעה שלכם</label>
+            <textarea id="message" name="message" required placeholder="כתבו לנו כאן..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1.05rem" id="submitBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg>
+            שליחת הפנייה
+          </button>
+          <div class="form-msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="#top" class="foot-brand">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></span>
+        אגר-נט
+      </a>
+      <div class="foot-links">
+        <a href="#advantages">למה אנחנו</a>
+        <a href="#branches">סניפים</a>
+        <a href="#room">חדר מחשבים</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      © <span id="year"></span> אגר-נט · גולשים בנח על בטוח · השכרת מחשבים ניידים בפריסה ארצית
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="fab" id="fab"></div>
+
+<script>
+const MAP_PROVIDER = "waze"; // waze | google
+function navLink(q){
+  const e=encodeURIComponent(q);
+  return MAP_PROVIDER==="waze" ? "https://waze.com/ul?q="+e+"&navigate=yes" : "https://www.google.com/maps/search/?api=1&query="+e;
+}
+function telLink(p){return "tel:"+String(p).replace(/[^0-9+]/g,"");}
+function icon(name){
+  const I={
+    shield:'<path d="M12 2 4 6v6c0 5 8 8 8 8s8-3 8-8V6z"/><path d="m9 11 2 2 4-4"/>',
+    map:'<path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+    bolt:'<path d="M13 2 3 14h7l-1 8 10-12h-7z"/>',
+    wallet:'<rect x="3" y="6" width="18" height="13" rx="2"/><path d="M16 12h.01M3 10h18"/>',
+    headset:'<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2" y="14" width="4" height="6" rx="1"/><rect x="18" y="14" width="4" height="6" rx="1"/><path d="M20 20a4 4 0 0 1-4 3h-2"/>',
+    sparkles:'<path d="M12 3l1.8 4.5L18 9l-4.2 1.5L12 15l-1.8-4.5L6 9l4.2-1.5z"/><path d="M18 15l.9 2.2L21 18l-2.1.8L18 21l-.9-2.2L15 18l2.1-.8z"/>'
+  };
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(I[name]||I.shield)+'</svg>';
+}
+
+let DATA=null, currentFilter="all";
+
+fetch('data/content.json').then(r=>r.json()).then(d=>{DATA=d;render();}).catch(e=>{
+  document.getElementById('branchGrid').innerHTML='<p class="no-results">שגיאה בטעינת הנתונים.</p>';
+});
+
+function render(){
+  const s=DATA.settings;
+  document.getElementById('heroTitle').innerHTML = s.heroTitle.replace(/(בפריסה ארצית|ארצית)/,'<span class="grad">$1</span>');
+  document.getElementById('heroSub').textContent = s.heroSubtitle;
+  document.getElementById('brandTag').textContent = s.tagline;
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // advantages
+  document.getElementById('advGrid').innerHTML = DATA.advantages.map((a,i)=>
+    '<div class="adv-card reveal" style="transition-delay:'+(i*70)+'ms"><div class="adv-icon">'+icon(a.icon)+'</div><h3>'+a.title+'</h3><p>'+a.text+'</p></div>'
+  ).join('');
+
+  // marquee
+  const cities=[...new Set(DATA.branches.map(b=>b.city))];
+  const items=cities.map(c=>'<span>'+c+'</span>').join('');
+  document.getElementById('marquee').innerHTML=items+items+items+items;
+
+  renderBranches();
+  renderRoom();
+  renderContact();
+  observe();
+}
+
+function renderBranches(){
+  const q=(document.getElementById('searchInput').value||'').trim();
+  let list=DATA.branches.filter(b=>{
+    const okF = currentFilter==="all" || b.status===currentFilter;
+    const okQ = !q || (b.city+' '+b.name+' '+b.address).includes(q);
+    return okF && okQ;
+  });
+  const grid=document.getElementById('branchGrid');
+  if(!list.length){grid.innerHTML='<p class="no-results">לא נמצאו סניפים תואמים.</p>';return;}
+  grid.innerHTML=list.map((b,i)=>{
+    const soon=b.status==="soon";
+    const wa=DATA.settings.whatsapp;
+    return '<div class="branch-card reveal '+(soon?'soon':'')+'" style="transition-delay:'+(i*50)+'ms">'
+      +'<div class="bar"></div>'
+      +'<span class="badge '+(soon?'soon':'on')+'">'+(soon?(b.note||'בקרוב'):'פעיל')+'</span>'
+      +'<span class="city"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>'+b.city+'</span>'
+      +'<h3>'+b.name+'</h3>'
+      +'<div class="addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></svg><span>'+b.address+'</span></div>'
+      +'<div class="branch-actions">'
+        +(soon
+          ? '<a class="b-btn b-nav b-full" href="#contact">קבלת עדכון לכשייפתח</a>'
+          : '<a class="b-btn b-call" href="'+telLink(b.phone)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'+b.phone+'</a>'
+            +'<a class="b-btn b-nav" target="_blank" rel="noopener" href="'+navLink(b.mapQuery||b.address)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8z"/></svg>ניווט</a>')
+      +'</div>'
+      +(soon?'':'<a class="b-btn b-wa b-full" style="margin-top:10px" target="_blank" rel="noopener" href="https://wa.me/'+wa+'?text='+encodeURIComponent('שלום, אשמח לפרטים על סניף '+b.city)+'"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11 11 0 0 0 4.3 3.8c1.5.6 2 .7 2.8.6a2.4 2.4 0 0 0 1.6-1.1 2 2 0 0 0 .1-1.1c0-.1-.2-.2-.5-.3z"/></svg>וואטסאפ</a>')
+    +'</div>';
+  }).join('');
+  observe();
+}
+
+function renderRoom(){
+  const r=DATA.computerRoom;
+  const box=document.getElementById('roomBox');
+  if(!r||!r.show){document.getElementById('room').style.display='none';return;}
+  box.innerHTML=
+    '<div><span class="room-badge"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 20h10M12 16v4"/></svg> '+r.city+'</span>'
+    +'<h2>'+r.title+'</h2><p>'+r.text+'</p>'
+    +'<div class="room-actions">'
+      +'<a class="btn btn-ghost" href="'+telLink(r.phone)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>'+r.phone+'</a>'
+      +'<a class="btn btn-ghost" target="_blank" rel="noopener" href="'+navLink(r.mapQuery||r.address)+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8z"/></svg>ניווט לחדר</a>'
+    +'</div></div>'
+    +'<div class="room-visual"><div class="screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 20h20"/></svg></div></div>';
+}
+
+function renderContact(){
+  const s=DATA.settings;
+  document.getElementById('contactInfo').innerHTML=
+    '<a href="'+telLink(s.mainPhone)+'"><span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>'+s.mainPhone+'</a>'
+    +'<a target="_blank" rel="noopener" href="https://wa.me/'+s.whatsapp+'"><span class="ci-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2z"/></svg></span>וואטסאפ</a>'
+    +'<a href="mailto:'+s.email+'"><span class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>'+s.email+'</a>';
+  document.getElementById('fab').innerHTML=
+    '<a class="wa" target="_blank" rel="noopener" href="https://wa.me/'+s.whatsapp+'" aria-label="וואטסאפ"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 20z"/></svg></a>'
+    +'<a class="ph" href="'+telLink(s.mainPhone)+'" aria-label="חייג"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>';
+}
+
+// search + filters
+document.getElementById('searchInput').addEventListener('input',renderBranches);
+document.querySelectorAll('.filter-btn').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filter-btn').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');currentFilter=b.dataset.filter;renderBranches();
+}));
+
+// contact form (Web3Forms)
+document.getElementById('contactForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn'), msg=document.getElementById('formMsg');
+  const key=e.target.access_key.value;
+  if(!key||key==="YOUR_WEB3FORMS_ACCESS_KEY"){
+    msg.className='form-msg err';msg.textContent='הטופס עדיין לא חובר (חסר מפתח Web3Forms). ראו מדריך ההקמה.';return;
+  }
+  btn.disabled=true;btn.style.opacity=.6;msg.className='form-msg';msg.style.display='none';
+  try{
+    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(e.target)))});
+    const d=await res.json();
+    if(d.success){msg.className='form-msg ok';msg.textContent='הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם.';e.target.reset();}
+    else{msg.className='form-msg err';msg.textContent='אירעה שגיאה. נסו שוב או התקשרו אלינו.';}
+  }catch(err){msg.className='form-msg err';msg.textContent='אירעה שגיאה בשליחה. נסו שוב מאוחר יותר.';}
+  btn.disabled=false;btn.style.opacity=1;
+});
+
+// reveal on scroll
+let io;
+function observe(){
+  if(io)io.disconnect();
+  io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+}
+
+// counters
+const counters=document.querySelectorAll('.count');
+const cio=new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){
+    const el=en.target,to=+el.dataset.to,suf=el.dataset.suffix||'';let n=0;
+    const step=Math.max(1,Math.ceil(to/40));
+    const t=setInterval(()=>{n+=step;if(n>=to){n=to;clearInterval(t);}el.textContent=n+suf;},28);
+    cio.unobserve(el);
+  }
+}),{threshold:.5});
+counters.forEach(c=>cio.observe(c));
+
+// header scroll + mobile menu
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',scrollY>30));
+document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navInner').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navInner').classList.remove('open')));
+</script>
+<!-- Netlify Identity (מאפשר התחברות לפאנל הניהול) -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+      }
+    });
+  }
+</script>
+</body>
+</html>
