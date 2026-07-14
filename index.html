@@ -432,7 +432,8 @@ function render(){
   document.getElementById('heroSub').textContent = s.heroSubtitle;
   document.getElementById('brandTag').textContent = s.tagline;
   document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('heroStats').innerHTML = (s.stats||[]).map(st=>{
+  const _stats=(s.stats&&s.stats.length)?s.stats:[{value:"40",label:"סניפים בפריסה"},{value:"15+",label:"ערים ברחבי הארץ"},{value:"100%",label:"מסונן ובטוח"}];
+  document.getElementById('heroStats').innerHTML = _stats.map(st=>{
     const m=String(st.value).match(/^(\d+)(.*)$/);
     if(m){return '<div class="stat"><b class="count" data-to="'+m[1]+'" data-suffix="'+m[2].replace(/"/g,'')+'">0</b><span>'+st.label+'</span></div>';}
     return '<div class="stat"><b>'+st.value+'</b><span>'+st.label+'</span></div>';
