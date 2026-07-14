@@ -349,11 +349,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
         <p>יש לכם שאלה? רוצים להזמין מחשב? השאירו פרטים ונחזור אליכם בהקדם.</p>
       </div>
       <div class="contact-form">
-        <form id="contactForm">
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-          <input type="hidden" name="subject" value="פנייה חדשה מאתר אולטרנט">
-          <input type="hidden" name="from_name" value="אתר אולטרנט">
-          <input type="checkbox" name="botcheck" style="display:none">
+        <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p hidden><label>אל תמלאו שדה זה: <input name="bot-field"></label></p>
           <div class="field">
             <label for="name">שם מלא</label>
             <input type="text" id="name" name="name" required placeholder="השם שלכם">
@@ -487,14 +485,12 @@ document.querySelectorAll('[data-filter-link]').forEach(a=>a.addEventListener('c
 // contact form (Web3Forms)
 document.getElementById('contactForm').addEventListener('submit',async e=>{
   e.preventDefault();
-  const btn=document.getElementById('submitBtn'), msg=document.getElementById('formMsg');
-  const key=e.target.access_key.value;
-  if(!key||key==="YOUR_WEB3FORMS_ACCESS_KEY"){msg.className='form-msg err';msg.textContent='הטופס עדיין לא חובר (חסר מפתח Web3Forms). ראו מדריך ההקמה.';return;}
+  const form=e.target, btn=document.getElementById('submitBtn'), msg=document.getElementById('formMsg');
   btn.disabled=true;btn.style.opacity=.6;msg.className='form-msg';msg.style.display='none';
   try{
-    const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(e.target)))});
-    const d=await res.json();
-    if(d.success){msg.className='form-msg ok';msg.textContent='הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם.';e.target.reset();}
+    const body=new URLSearchParams(new FormData(form)).toString();
+    const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
+    if(res.ok){msg.className='form-msg ok';msg.textContent='הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם.';form.reset();}
     else{msg.className='form-msg err';msg.textContent='אירעה שגיאה. נסו שוב או פנו אלינו.';}
   }catch(err){msg.className='form-msg err';msg.textContent='אירעה שגיאה בשליחה. נסו שוב מאוחר יותר.';}
   btn.disabled=false;btn.style.opacity=1;
