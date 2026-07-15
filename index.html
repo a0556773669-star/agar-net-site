@@ -352,9 +352,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.7);padding:50px 0 26px;marg
         <p>יש לכם שאלה? רוצים להזמין מחשב? השאירו פרטים ונחזור אליכם בהקדם.</p>
       </div>
       <div class="contact-form">
-        <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact">
-          <p hidden><label>אל תמלאו שדה זה: <input name="bot-field"></label></p>
+        <form id="contactForm">
+          <input type="hidden" name="_subject" value="פנייה חדשה מאתר אולטרנט">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <p hidden><label>אל תמלאו שדה זה: <input name="_honey"></label></p>
           <div class="field">
             <label for="name">שם מלא</label>
             <input type="text" id="name" name="name" required placeholder="השם שלכם">
@@ -498,9 +500,10 @@ document.getElementById('contactForm').addEventListener('submit',async e=>{
   const form=e.target, btn=document.getElementById('submitBtn'), msg=document.getElementById('formMsg');
   btn.disabled=true;btn.style.opacity=.6;msg.className='form-msg';msg.style.display='none';
   try{
-    const body=new URLSearchParams(new FormData(form)).toString();
-    const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});
-    if(res.ok){msg.className='form-msg ok';msg.textContent='הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם.';form.reset();}
+    const data=Object.fromEntries(new FormData(form));
+    const res=await fetch('https://formsubmit.co/ajax/a0556773669@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+    const d=await res.json().catch(()=>({}));
+    if(res.ok && (d.success===undefined || d.success==='true' || d.success===true)){msg.className='form-msg ok';msg.textContent='הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם.';form.reset();}
     else{msg.className='form-msg err';msg.textContent='אירעה שגיאה. נסו שוב או פנו אלינו.';}
   }catch(err){msg.className='form-msg err';msg.textContent='אירעה שגיאה בשליחה. נסו שוב מאוחר יותר.';}
   btn.disabled=false;btn.style.opacity=1;
@@ -529,15 +532,6 @@ function setupCounters(){
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',scrollY>30));
 document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navInner').classList.toggle('open'));
 document.querySelectorAll('.nav-links a:not([data-filter-link])').forEach(a=>a.addEventListener('click',()=>document.getElementById('navInner').classList.remove('open')));
-</script>
-<!-- Netlify Identity (מאפשר התחברות לפאנל הניהול) -->
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); }
-    });
-  }
 </script>
 </body>
 </html>
