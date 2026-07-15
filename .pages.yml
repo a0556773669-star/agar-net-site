@@ -1,0 +1,70 @@
+media:
+  input: assets/uploads
+  output: /assets/uploads
+
+content:
+  - name: content
+    label: תוכן האתר
+    type: file
+    path: data/content.json
+    fields:
+      - name: settings
+        label: הגדרות כלליות
+        type: object
+        fields:
+          - { name: businessName, label: שם העסק, type: string }
+          - { name: tagline, label: סלוגן, type: string }
+          - { name: heroTitle, label: כותרת ראשית, type: string }
+          - { name: heroSubtitle, label: תת-כותרת, type: text }
+          - { name: mainPhone, label: טלפון ראשי, type: string }
+          - { name: email, label: אימייל לקבלת פניות, type: string }
+          - name: stats
+            label: מספרים מוצגים
+            type: object
+            list: true
+            fields:
+              - { name: value, label: ערך (למשל 40 או 100%), type: string }
+              - { name: label, label: תיאור, type: string }
+      - name: advantages
+        label: יתרונות
+        type: object
+        list: true
+        fields:
+          - name: icon
+            label: אייקון
+            type: select
+            options:
+              values:
+                - { name: shield, label: מגן (אבטחה) }
+                - { name: map, label: מפה (פריסה) }
+                - { name: bolt, label: ברק (מהירות) }
+                - { name: wallet, label: ארנק (מחיר) }
+                - { name: headset, label: אוזניות (תמיכה) }
+                - { name: sparkles, label: נצנצים (איכות) }
+          - { name: title, label: כותרת, type: string }
+          - { name: text, label: תיאור, type: text }
+      - name: branches
+        label: סניפים וחדרי מחשבים
+        type: object
+        list: true
+        fields:
+          - name: kind
+            label: סוג המיקום
+            type: select
+            options:
+              values:
+                - { name: rental, label: סניף השכרה }
+                - { name: room, label: חדר מחשבים }
+          - { name: city, label: עיר, type: string }
+          - { name: name, label: שם, type: string }
+          - { name: phone, label: טלפון, type: string }
+          - { name: address, label: כתובת מלאה, type: string }
+          - { name: mapQuery, label: טקסט לניווט (עיר + רחוב), type: string, required: false }
+          - name: status
+            label: סטטוס
+            type: select
+            options:
+              values:
+                - { name: active, label: פעיל }
+                - { name: soon, label: בקרוב (נפתח בקרוב) }
+          - { name: note, label: הערה, type: string, required: false }
