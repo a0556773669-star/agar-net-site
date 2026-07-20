@@ -61,8 +61,7 @@
       "phone": "0548487884",
       "address": "רחוב מעגלות הרב פרדס 49 ירושלים",
       "mapQuery": "מעגלות הרב פרדס 49 ירושלים",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -71,8 +70,7 @@
       "phone": "0504137522",
       "address": "רחוב בר אילן 42 בני ברק",
       "mapQuery": "בר אילן 42 בני ברק",
-      "status": "soon",
-      "note": "נפתח בקרוב!"
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -81,8 +79,7 @@
       "phone": "0504114875",
       "address": "רחוב ריש לקיש 12 בית שמש",
       "mapQuery": "ריש לקיש 12 בית שמש",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -91,8 +88,7 @@
       "phone": "0584463321",
       "address": "רחוב יחזקאל הנביא 20 בית שמש",
       "mapQuery": "יחזקאל הנביא 20 בית שמש",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -101,8 +97,7 @@
       "phone": "0548571108",
       "address": "רחוב הלל 15 אשדוד",
       "mapQuery": "הלל 15 אשדוד",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -111,8 +106,7 @@
       "phone": "0504198891",
       "address": "רחוב חתם סופר 11 ביתר עילית",
       "mapQuery": "חתם סופר 11 ביתר עילית",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -121,8 +115,7 @@
       "phone": "0527145898",
       "address": "רחוב פנים מאירים 3 ביתר עילית",
       "mapQuery": "פנים מאירים 3 ביתר עילית",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -131,8 +124,7 @@
       "phone": "0556773669",
       "address": "רחוב לוחמי הגטאות 22 צפת",
       "mapQuery": " לוחמי הגטאות 22 צפת",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -141,8 +133,7 @@
       "phone": "0556773669",
       "address": "רחוב מאור חיים 5, צפת",
       "mapQuery": "מאור חיים 5 צפת",
-      "status": "soon",
-      "note": ""
+      "status": "soon"
     },
     {
       "kind": "rental",
@@ -161,8 +152,7 @@
       "phone": "0583253517",
       "address": "רחוב בנה ביתך רכסים",
       "mapQuery": "בנה ביתך רכסים",
-      "status": "active",
-      "note": ""
+      "status": "active"
     },
     {
       "kind": "rental",
@@ -171,8 +161,7 @@
       "phone": "0548546552",
       "address": "רחוב ההגנה 749 ירוחם",
       "mapQuery": "ההגנה 749 ירוחם",
-      "status": "active",
-      "note": ""
+      "status": "active"
     }
   ]
 }
