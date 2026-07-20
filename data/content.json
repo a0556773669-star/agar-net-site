@@ -162,6 +162,12 @@
       "address": "רחוב ההגנה 749 ירוחם",
       "mapQuery": "ההגנה 749 ירוחם",
       "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "אשדוד",
+      "name": "רובע ג'",
+      "status": "soon"
     }
   ]
 }
