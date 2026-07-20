@@ -168,6 +168,13 @@
       "city": "אשדוד",
       "name": "רובע ג'",
       "status": "soon"
-    }
+    },
+    {
+      "kind": "rental",
+      "city": "ירושלים",
+      "name": "בית וגן",
+      "status": "soon"
+    },
+    {}
   ]
 }
