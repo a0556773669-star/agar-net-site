@@ -174,6 +174,38 @@
       "city": "ירושלים",
       "name": "בית וגן",
       "status": "soon"
+    },
+    {
+      "kind": "room",
+      "city": "צפת",
+      "name": "לוחמי הגטאות - גברים נשים וזוגות",
+      "address": "לוחמי הגטאות 22 צפת",
+      "mapQuery": "לוחמי הגטאות 22 צפת",
+      "status": "active"
+    },
+    {
+      "kind": "room",
+      "city": "צפת",
+      "name": "הנשיא - גברים נשים",
+      "address": "הנשיא 44 כניסה א",
+      "mapQuery": "הנשיא 44 צפת",
+      "status": "active"
+    },
+    {
+      "kind": "room",
+      "city": "צפת",
+      "name": "ויצמן - גברים וזוגות",
+      "address": "ויצמן 39",
+      "mapQuery": "ויצמן 39 צפת",
+      "status": "active"
+    },
+    {
+      "kind": "room",
+      "city": "צפת",
+      "name": "רסקו - נשים",
+      "address": "הרצל 20",
+      "mapQuery": "הרצל 20 צפת",
+      "status": "active"
     }
   ]
 }
