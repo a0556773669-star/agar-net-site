@@ -501,7 +501,8 @@ document.getElementById('contactForm').addEventListener('submit',async e=>{
   btn.disabled=true;btn.style.opacity=.6;msg.className='form-msg';msg.style.display='none';
   try{
     const data=Object.fromEntries(new FormData(form));
-    const res=await fetch('https://formsubmit.co/ajax/a0556773669@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+    const _to=(DATA&&DATA.settings&&DATA.settings.email)?DATA.settings.email:'a0556773669@gmail.com';
+    const res=await fetch('https://formsubmit.co/ajax/'+encodeURIComponent(_to),{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
     const d=await res.json().catch(()=>({}));
     if(res.ok && (d.success===undefined || d.success==='true' || d.success===true)){msg.className='form-msg ok';msg.textContent='הפנייה נשלחה בהצלחה! נחזור אליכם בהקדם.';form.reset();}
     else{msg.className='form-msg err';msg.textContent='אירעה שגיאה. נסו שוב או פנו אלינו.';}
