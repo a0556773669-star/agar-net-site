@@ -8,11 +8,11 @@
     "email": "INFO@ultranet1.co.il",
     "stats": [
       {
-        "value": "15",
+        "value": "23",
         "label": "סניפים בפריסה ארצית"
       },
       {
-        "value": "9",
+        "value": "11",
         "label": "ערים ברחבי הארץ"
       },
       {
@@ -206,6 +206,57 @@
       "address": "הרצל 20",
       "mapQuery": "הרצל 20 צפת",
       "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "ביתר עילית",
+      "name": "הרב קעניג",
+      "phone": "0504173707",
+      "address": "רחוב הרב קעניג ביתר עילית",
+      "mapQuery": "הרב קעניג ביתר עילית",
+      "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "ביתר עילית",
+      "name": "אדמורי ויזניץ",
+      "phone": "0527175652",
+      "address": "רחוב אדמורי ויזניץ ביתר עילית",
+      "mapQuery": "אדמורי ויזניץ ביתר עילית",
+      "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "מודיעין עילית",
+      "name": "קרית ספר",
+      "phone": "0527606415",
+      "address": "רחוב אור החיים 1 מודיעין עלית",
+      "mapQuery": "אור החיים 1 מודיעין עלית",
+      "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "מודיעין עילית",
+      "name": "גן הדסים",
+      "phone": "0583257635",
+      "address": "רחוב רשב\"א 15 מודיעין עילית",
+      "mapQuery": "רשב\"א 15 מודיעין עילית",
+      "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "אשדוד",
+      "name": "רובע ג'",
+      "phone": "0548533243",
+      "address": "רחוב האדמור מבעלזא 18 אשדוד",
+      "mapQuery": "האדמור מבעלזא 18 אשדוד",
+      "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "עפולה",
+      "name": "עפולה עילית",
+      "status": "soon"
     }
   ]
 }
