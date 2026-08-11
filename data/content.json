@@ -88,6 +88,15 @@
     },
     {
       "kind": "rental",
+      "city": "ירושלים ",
+      "name": "רמות",
+      "phone": "0534159288",
+      "address": " רמות",
+      "mapQuery": "פנים מאירים 3 ביתר עילית",
+      "status": "active"
+    },
+    {
+      "kind": "rental",
       "city": "בני ברק",
       "name": "שיכון ה'",
       "phone": "0548574740",
@@ -119,15 +128,6 @@
       "name": "גבעה A",
       "address": "רחוב בבא סאלי 9 ביתר עילית",
       "mapQuery": "בבא סאלי 9 ביתר עילית",
-      "status": "active"
-    },
-    {
-      "kind": "rental",
-      "city": "ירושלים ",
-      "name": "רמות",
-      "phone": "0534159288",
-      "address": " רמות",
-      "mapQuery": "פנים מאירים 3 ביתר עילית",
       "status": "active"
     },
     {
