@@ -114,6 +114,15 @@
       "status": "active"
     },
     {
+      "kind": "room",
+      "city": "בית שמש",
+      "name": "רמה ג",
+      "phone": "0584463321",
+      "address": "יחזקאל הנביא 20 רמה ג",
+      "mapQuery": "יחזקל הנביא 20 רמה ג בית שמש",
+      "status": "soon"
+    },
+    {
       "kind": "rental",
       "city": "בית שמש ",
       "name": "רמה ג'",
@@ -187,7 +196,10 @@
     {
       "kind": "rental",
       "city": "אלעד",
-      "name": "מרכז העיר"
+      "name": "מרכז העיר",
+      "phone": "0527118585",
+      "address": "רבי עקיבא 27 ",
+      "mapQuery": "רבי עקיבא 27  אלעד"
     },
     {
       "kind": "rental",
@@ -219,15 +231,6 @@
     },
     {
       "kind": "rental",
-      "city": "רכסים",
-      "name": "מצפה השחר",
-      "phone": "0583253517",
-      "address": "רחוב דרכי שלום 18 רכסים",
-      "mapQuery": "דרכי שלום 18 רכסים",
-      "status": "active"
-    },
-    {
-      "kind": "rental",
       "city": "ירוחם",
       "name": "הקהילה החרדית",
       "phone": "0548546552",
@@ -240,6 +243,15 @@
       "city": "עפולה",
       "name": "עפולה עילית",
       "status": "soon"
+    },
+    {
+      "kind": "rental",
+      "city": "רכסים",
+      "name": "מצפה השחר",
+      "phone": "0583253517",
+      "address": "רחוב דרכי שלום 18 רכסים",
+      "mapQuery": "דרכי שלום 18 רכסים",
+      "status": "active"
     },
     {
       "kind": "room",
@@ -274,10 +286,12 @@
       "status": "active"
     },
     {
-      "kind": "room",
-      "city": "בית שמש",
-      "name": "רמה ג",
-      "status": "soon"
+      "kind": "rental",
+      "city": "אחיסמך לוד",
+      "name": "אלחנן כהן",
+      "phone": "0548468896",
+      "address": "שבט אשר 7 דירה 9 אחיסמך-לוד",
+      "mapQuery": "שבט אשר 7  אחיסמך-לוד"
     }
   ]
 }
