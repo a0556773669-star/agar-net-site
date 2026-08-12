@@ -214,24 +214,6 @@
     },
     {
       "kind": "rental",
-      "city": "צפת",
-      "name": "מרכז",
-      "phone": "0556773669",
-      "address": "רחוב לוחמי הגטאות 22 צפת",
-      "mapQuery": " לוחמי הגטאות 22 צפת",
-      "status": "active"
-    },
-    {
-      "kind": "rental",
-      "city": "צפת",
-      "name": "מאור חיים",
-      "phone": "0556773669",
-      "address": "רחוב מאור חיים 5, צפת",
-      "mapQuery": "מאור חיים 5 צפת",
-      "status": "active"
-    },
-    {
-      "kind": "rental",
       "city": "נתיבות",
       "name": "מערב",
       "phone": "0548567219",
@@ -253,6 +235,8 @@
       "kind": "rental",
       "city": "עפולה",
       "name": "עפולה עילית",
+      "phone": "'0527626295",
+      "address": "עפולה עלית 13",
       "status": "active"
     },
     {
@@ -265,11 +249,29 @@
       "status": "active"
     },
     {
+      "kind": "rental",
+      "city": "צפת",
+      "name": "מרכז",
+      "phone": "0556773669",
+      "address": "רחוב לוחמי הגטאות 22 צפת",
+      "mapQuery": " לוחמי הגטאות 22 צפת",
+      "status": "active"
+    },
+    {
       "kind": "room",
       "city": "צפת",
       "name": "לוחמי הגטאות - גברים נשים וזוגות",
       "address": "לוחמי הגטאות 22 צפת",
       "mapQuery": "לוחמי הגטאות 22 צפת",
+      "status": "active"
+    },
+    {
+      "kind": "rental",
+      "city": "צפת",
+      "name": "מאור חיים",
+      "phone": "0556773669",
+      "address": "רחוב מאור חיים 5, צפת",
+      "mapQuery": "מאור חיים 5 צפת",
       "status": "active"
     },
     {
